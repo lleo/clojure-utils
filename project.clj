@@ -1,4 +1,4 @@
-(defproject lleo/utils "0.1.0-SNAPSHOT"
+(defproject lleo/utils "0.1.0"
   :description "My utility functions in a library"
   :url "https://github.com/lleo/clojure-utils"
   :license {:name "Eclipse Public License"
