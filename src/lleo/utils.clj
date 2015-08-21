@@ -39,13 +39,6 @@
              (.indexOf s fe (+ end (count fe)))
              (conj result (substr s beg end))))))
 
-;(defmethod split [String String] [s fe]
-;  (let [^Matcher m (re-matcher (Pattern/compile (str "\\Q" fe "\\E")) s)]
-;    (loop [beg 0 result []]
-;      (if (.find m)
-;        (recur (.end m) (conj result (substr s beg (.start m))))
-;        (conj result (substr s beg (count s)))))))
-
 (defmethod split [String String Long] [s fe lim]
   (if (< lim 0)
     (split s fe)
@@ -57,17 +50,6 @@
                  (.indexOf s fe (+ end (count fe)))
                  (conj result (substr s beg end))))
         result))))
-
-;(defmethod split [String String Long] [s fe lim]
-;  (if (< 0 lim)
-;    (split s fe)
-;    (let [^Matcher m (re-matcher (Pattern/compile (str "\\Q" fe "\\E")) s)]
-;      (loop [beg 0 result []]
-;        (if (< (count result) lim)
-;          (if (.find m)
-;            (recur (.end m) (conj result (substr s beg (.start m))))
-;            (conj result (substr s beg (count s))))
-;          result)))))
 
 (defmethod split [String Pattern] [s rx]
   (let [^Matcher m (re-matcher rx s)]
@@ -87,7 +69,8 @@
             (conj result (substr s beg (count s))))
           result)))))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+
+(defn msg
+  "Print a message"
+  []
+  "first non-snapshot")
